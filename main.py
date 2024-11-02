@@ -1,13 +1,17 @@
-from fastapi import FastAPI
+from openai import OpenAI
+import os
 
-app = FastAPI()
+openai = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
+response = openai.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{
+        "role": "system",
+        "content": "you are a helpful assistant,"
+                   + " you will have conversations in brazilian portuguese and you will not hallucinate"
+    }, {"role": "user",
+        "content": "você entende português?"
+        }],
+)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+print(response.choices[0].message.content)
