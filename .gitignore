@@ -11,4 +11,5 @@
 .idea/*
 .idea
 test_main.http
-
+.vscode
+__pycache__
