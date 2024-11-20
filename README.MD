@@ -12,4 +12,4 @@
         - rich;
     - Conceitos:
         - Websocket (tenho grande interesse por comunicação em tempo real e streaming de dados em geral e acredito que
-          websockets são essenciais para tais objetivos)
+          websockets são essenciais para tal)
